@@ -40,4 +40,4 @@ Routes		HTTP Methods		Description
 
 Dependencies
 
-express axios body-parser nodemon mongoose morgan 
+express axios body-parser nodemon mongoose morgan dotenv
