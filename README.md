@@ -29,14 +29,14 @@ Object Design
 
 Routes and request methods.
 
-Routes		HTTP Methods		Description
-/item		GET			Display all items
-/item		POST			Create new item
-/item		DELETE			Delete all items
-/item/:specific	DELETE			Delete single item
-/item/:specific	GET			Display single item given its name
-/item/:specific	POST			Add a comment to a specific item
-/item/:specific	PATCH			Update a specific item given its name
+Routes			HTTP Methods		Description
+/ebook			GET					Display all items
+/ebook			POST				Create new item
+/ebook			DELETE				Delete all items
+/ebook/:bookid	DELETE				Delete single item
+/ebook/:bookid	GET					Display single item given its name
+/ebook/:bookid	POST				Add a comment to a specific item
+/ebook/:bookid	PATCH				Update a specific item given its name
 
 Dependencies
 
