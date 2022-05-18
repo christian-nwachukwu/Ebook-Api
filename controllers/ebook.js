@@ -1,5 +1,5 @@
-//import model foulder
-//const ebookController = require('../controllers/ebook');
+//import model folder
+const Book =  require('../model/ebook');
 
 //Get all books
 const getAllBooks= (req, res, next) =>{
@@ -7,8 +7,33 @@ const getAllBooks= (req, res, next) =>{
 };
 
 //Post a new book
-const postNewBook = (req, res, next) =>{
-    res.json({message: "Post a new book"});
+const postNewBook = 
+
+//Submits a new post to DB
+
+async (req, res) =>{
+//create new syllabus object to write post to database
+const Book = new Book({
+    //parse the object
+    author:req.body.author,
+    image: req.body.image,
+    description: req.body.description,
+    keywords: req.body.keywords,
+    origin: req.body.origin,
+    isbd: req.body.isbd,
+	co_authors: req.body.co_authors,
+	date: req.body.date,
+	comments: req.body.comments
+});
+
+try {
+    const saveBook = await Book.save();          //save to DB
+    res.json(saveBook);                              //try take data and respond to screen with status 200 and data in json
+}
+catch(err) {
+    //if no data, display error msg
+    res.json({message: err});
+}
 };
 
 //Get a specific book

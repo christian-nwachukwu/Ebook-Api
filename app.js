@@ -1,15 +1,21 @@
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 require('dotenv/config');
 const router = require('./routes/ebook');
 const app = express();
 
-
+//connect to DB
+mongoose.connect(process.env.connectDB, 
+    {useNewUrlParser: true}, 
+    //(error)=>{ if (error) return console.log("Error: ", error);
+    console.log('connected to DB')
+);
 
 //To use the routes middleware
 app.use('/', router);
-//app.use(bodyParser.json());
+app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
